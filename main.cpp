@@ -2,38 +2,34 @@
 #include <cmath>
 using namespace std;
 
-
-int main(void) {
-  double RH, Ptot, Pv, Rho, mv;
-  int T;
-  int V = 1;
+// Main
+int main(void) 
+{  
+  // Variables
+  double a, b, c_mm, c_inch;
   char redo;
 
   do 
   {
     // Input
-    cout << "\nTemperatur i hela grader (0-50): ";
-    cin >> T;
-    cout << "Fuktighet i hela procent (0-100): ";
-    cin >> RH;
-    cout << "Lufttryck i hela kPa (~101): ";
-    cin >> Ptot;
-  
-    // Fixa enheter och avrunda
-    Ptot = Ptot * 1000;
-    T = 5 * round(T/5.0);
-    RH = 5 * round(RH/5.0)/100;
+    cout << "\nSize of screen in inches: ";
+    cin >> c_inch;
 
-    // Beräkning
-    mv = 0.622 * Rho * V * (RH * Pv)/(Ptot - (RH * Pv));
+    // Convert units
+    c_mm = 25.4 * c_inch;
 
-    cout << "\nDetta motsvarar: " << mv*1000 << " gram vatten per kubikmeter." << endl;
+    // Calculate
+    b = sqrt(c^2/(1+(9/16)^2))
+    a = sqrt(c^2 - b^2);
+
+    cout << "\nWidth: " << b << " mm" << endl
+         << "Height: " << a << "mm" << endl;
 
     // Read if the user wants to redo
-		cout << "Beräkna igen? (j/n): ";
+		cout << "Calculate again? (y/n): ";
 		cin >> redo;
 
-	}while (redo == 'J' || redo == 'j');
+	}while (redo == 'Y' || redo == 'y');
 
   return 0;
 }
