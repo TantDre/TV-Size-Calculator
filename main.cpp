@@ -12,21 +12,21 @@ int main(void)
   do 
   {
     // Input
-    cout << "\nSize of screen in inches: ";
+    cout << endl << "Size of screen in inches: ";
     cin >> c_inch;
 
     // Convert units
     c_mm = 25.4 * c_inch;
 
     // Calculate
-    b = sqrt(c^2/(1+(9/16)^2))
-    a = sqrt(c^2 - b^2);
+    b = sqrt((c_mm * c_mm)/(1 + (9 / 16) * (9 / 16)));
+    a = b * 9.0 / 16.0;
 
-    cout << "\nWidth: " << b << " mm" << endl
-         << "Height: " << a << "mm" << endl;
+    cout << "Width: " << round(b) << " mm" << endl
+         << "Height: " << round(a) << " mm" << endl;
 
     // Read if the user wants to redo
-		cout << "Calculate again? (y/n): ";
+		cout << endl << "Calculate again? (y/n): ";
 		cin >> redo;
 
 	}while (redo == 'Y' || redo == 'y');
