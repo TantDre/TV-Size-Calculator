@@ -19,7 +19,7 @@ int main(void)
     c_mm = 25.4 * c_inch;
 
     // Calculate
-    b = sqrt((c_mm * c_mm)/(1 + (9 / 16) * (9 / 16)));
+    b = sqrt((c_mm * c_mm)/(1 + (9.0 / 16.0) * (9.0 / 16.0)));
     a = b * 9.0 / 16.0;
 
     cout << "Width: " << round(b) << " mm" << endl
