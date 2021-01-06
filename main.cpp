@@ -7,22 +7,45 @@ int main(void)
 {  
   // Variables
   double a, b, c_mm, c_inch;
-  char redo;
+  char redo, choice;
 
   do 
   {
-    // Input
-    cout << endl << "Size of screen in inches: ";
-    cin >> c_inch;
+    // Option
+    cout << endl << "Calculate from size or width? (s/w): ";
+    cin >> choice;
 
-    // Convert units
-    c_mm = 25.4 * c_inch;
+    if (choice == 'S' || choice == 's')
+    {
+      // Input
+      cout << "\nSize of screen in inches: ";
+      cin >> c_inch;
 
-    // Calculate
-    b = sqrt((c_mm * c_mm)/(1 + (9.0 / 16.0) * (9.0 / 16.0)));
-    a = b * 9.0 / 16.0;
+      // Convert units
+      c_mm = 25.4 * c_inch;
 
-    cout << "Width: " << round(b) << " mm" << endl
+      // Calculate
+      b = sqrt((c_mm * c_mm)/(1 + (9.0 / 16.0) * (9.0 / 16.0)));
+      a = b * 9.0 / 16.0;
+
+    } else if (choice == 'W' || choice == 'w')
+    {
+      // Input
+      cout << "\nWidth of TV-bench in mm: ";
+      cin >> b;
+
+      // Calculate
+      a = b * 9.0 / 16.0;
+      c_mm = sqrt(a*a + b*b);
+
+      // Convert units
+      c_inch = c_mm / 25.4;
+
+    }
+
+    // Print
+    cout << "\nSize: " << floor(c_inch) << " inches" << endl
+         << "Width: " << round(b) << " mm" << endl
          << "Height: " << round(a) << " mm" << endl;
 
     // Read if the user wants to redo
